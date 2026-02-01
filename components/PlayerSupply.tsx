@@ -21,20 +21,29 @@ const PlayerSupply: React.FC<PlayerSupplyProps> = ({
   isHuman 
 }) => {
   const colorStyle = COLORS[player];
+  const isOrange = player === PlayerColor.ORANGE;
+
+  // Defines the glow color based on player
+  const glowClass = isOrange 
+    ? 'shadow-[0_0_20px_rgba(249,115,22,0.6)] border-orange-400' 
+    : 'shadow-[0_0_20px_rgba(59,130,246,0.6)] border-blue-400';
 
   return (
     <div 
       className={`
-        flex flex-col items-center p-4 rounded-2xl transition-all duration-500
-        ${isActive ? 'bg-white/90 shadow-xl scale-105 border-2 ' + colorStyle.border : 'bg-white/40 opacity-70 scale-95'}
+        flex flex-col items-center p-4 rounded-2xl transition-all duration-500 relative
+        ${isActive 
+          ? `bg-white/90 scale-105 border-2 ${glowClass} ring-1 ring-white/50 animate-[pulse_3s_ease-in-out_infinite]` 
+          : 'bg-white/40 opacity-70 scale-95 border-2 border-transparent'}
       `}
     >
-      <h3 className={`font-bold text-lg mb-4 ${colorStyle.text}`}>
-        {player === PlayerColor.ORANGE ? 'Orange' : 'Blue'}
-        {isActive && <span className="ml-2 text-xs uppercase tracking-wider bg-black/10 px-2 py-1 rounded">Turn</span>}
+      <h3 className={`font-bold text-lg mb-4 ${colorStyle.text} flex items-center gap-2`}>
+        {isOrange ? 'Orange' : 'Blue'}
+        {isActive && !isHuman && <span className="text-xs bg-gray-200 px-2 py-0.5 rounded text-gray-600">Thinking...</span>}
+        {isActive && isHuman && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded animate-bounce">Your Turn</span>}
       </h3>
 
-      <div className="flex gap-4 items-end justify-center min-h-[100px]">
+      <div className="flex gap-4 items-end justify-center min-h-[80px]">
         {([PieceSize.SMALL, PieceSize.MEDIUM, PieceSize.LARGE] as PieceSize[]).map((size) => {
           const count = supply[size];
           const isSelected = selectedSize === size;

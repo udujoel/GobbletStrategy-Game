@@ -30,7 +30,15 @@ const Cell: React.FC<CellProps> = ({ stack, onClick, isValidTarget, disabled }) 
         ${disabled && !topPiece ? 'cursor-default' : 'cursor-pointer hover:bg-amber-100/80'}
       `}
     >
-        {/* Render only top piece physically, but maybe show hint of stack count? */}
+        {/* Concentric Circles Background (Placement Markers) */}
+        {!topPiece && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+             <div className="w-[70%] h-[70%] rounded-full border-2 border-amber-800"></div>
+             <div className="absolute w-[40%] h-[40%] rounded-full border-2 border-amber-800"></div>
+          </div>
+        )}
+
+        {/* Render only top piece physically */}
         {topPiece && (
             <div className="z-10 animate-in zoom-in duration-300">
                 <GobbletPiece 
@@ -38,11 +46,6 @@ const Cell: React.FC<CellProps> = ({ stack, onClick, isValidTarget, disabled }) 
                     size={topPiece.size} 
                 />
             </div>
-        )}
-
-        {/* Shadow/Depth placeholder if empty */}
-        {!topPiece && (
-            <div className="w-4 h-4 rounded-full bg-amber-900/10 shadow-inner" />
         )}
     </button>
   );
