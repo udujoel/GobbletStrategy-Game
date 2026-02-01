@@ -1,0 +1,5 @@
+{
+  "name": "Gobblet Strategy",
+  "description": "A strategic Tic-Tac-Toe variant where you can gobble your opponent's pieces. Features skewmorphic design and a smart AI opponent.",
+  "requestFramePermissions": []
+}
