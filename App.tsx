@@ -128,7 +128,7 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-wood text-amber-900 flex flex-col items-center relative overflow-x-hidden">
       
       {/* Header */}
-      <header className="w-full max-w-5xl flex justify-between items-center px-6 pt-6 pb-4 z-20">
+      <header className="w-full max-w-6xl flex justify-between items-center px-6 pt-6 pb-4 z-20">
         <h1 className="text-3xl md:text-4xl font-black tracking-tight text-amber-900 drop-shadow-sm select-none">
           Gobblet<span className="text-orange-600">Strategy</span>
         </h1>
@@ -207,7 +207,7 @@ const App: React.FC = () => {
       )}
 
       {/* Main Game Layout */}
-      <main className="flex flex-col lg:flex-row items-center justify-center gap-8 w-full max-w-5xl px-4 my-auto">
+      <main className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 w-full max-w-6xl px-4 my-auto">
         
         {/* Orange Player (Human or P1) */}
         <div className={`

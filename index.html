@@ -16,7 +16,16 @@
       /* Custom wood texture pattern */
       .bg-wood {
         background-color: #eecfa1;
-        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h20v30h20v-2H20v-2h20v-2H20v-2h20v-2H20v-2h20v-2H20v-2h20v-2H20v-2h20l0 2.5z' fill='%23d4a76a' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h20v30h20v-2H20v-2h20v-2H20v-2h20v-2H20v-2h20v-2H20v-2h20l0 2.5z' fill='%23d4a76a' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+      
+      @keyframes zoomIn {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      
+      .animate-zoom-in {
+        animation: zoomIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
       }
     </style>
   <script type="importmap">
